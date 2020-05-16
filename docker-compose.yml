@@ -1,0 +1,21 @@
+version: '3'
+volumes:
+  mongo:
+services: 
+  node-web:
+    image: "node:latest"
+    working_dir: /home/node/app
+    volumes: 
+      - ./:/home/node/app
+    command: "node app.js"
+    ports: 
+      - 80:3000
+    depends_on:
+      - mongo-db
+
+
+  mongo-db:
+    image: "mongo:latest"
+    command: "mongod --nojournal"
+    volumes:
+      - mongo:/data/db

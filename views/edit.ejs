@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+
+<div class="ui container main text segment">
+	<div class="ui huge header" style="text-align:center;">Editing <%= note.title %> post</div>
+	<form class="ui form" action="/note/<%= note._id%>?_method=put" method="post">
+		<div class="field">
+			<label>Title</label>
+    		<input type="text" name="note[title]" value="<%= note.title %>" >
+		</div>
+		<div class="field">
+			<label>Description</label>
+    		<textarea name="note[body]" ><%= note.body %></textarea>
+		</div>
+		<button class="ui button basic black" type="submit">
+			submit
+		</button>
+	</form>
+</div>
+
+
+
+
+<%- include("partials/footer") %>
