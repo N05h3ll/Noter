@@ -7,8 +7,7 @@ services:
     working_dir: /home/node/app
     volumes: 
       - ./:/home/node/app
-    command: "npm install"
-    command: "node app.js"
+    command: bash -c "npm install && node app.js"
     ports: 
       - 80:3000
     depends_on:
